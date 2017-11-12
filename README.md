@@ -9,26 +9,14 @@ The DropletMetadata Ruby Gem is unofficial tiny wrapper for [DigitalOcean Drople
 > to look-up data about a Droplet, metadata can be used to configure a Droplet and its applications.
 
 
-You can build the Gem yourself based on this repo, by doing:
 
-```
-gem build droplet_metadata.gemspec
-```
-
-And then install it locally in your own gem repo:
-
-```
-gem install droplet_metadata-0.1.0.gem
-```
-
-Or, you can install it from the rubygems.org repo, by simply running:
+You can install gem from the rubygems.org repo, by simply running:
 
 ```
 gem install droplet_metadata
 ```
 
 ### Basic usage
-
 
 ```ruby
 require 'droplet_metadata'
@@ -53,3 +41,14 @@ print DropletMetadata.tags          # array of tags. If droplet has not tags emp
  - `DropletMetadata.metadata` - raw droplet metadata as an object in a form it was returned by DigitalOcean endpoint.
 
 Please see the Droplet Metadata API documentation (https://developers.digitalocean.com/documentation/metadata/) for more details
+
+
+### Building and publishing
+
+```
+curl -u <username> https://rubygems.org/api/v1/api_key.yaml > ~/.gem/credentials; chmod 0600 ~/.gem/credentials
+
+gem build droplet_metadata.gemspec
+gem push droplet_metadata-x.y.z.gemspec
+gem list -r droplet_metadata
+```
